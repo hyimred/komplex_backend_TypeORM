@@ -36,6 +36,10 @@ export class AppController {
     storageRepo.delete(id);
   }
 
-  
+  @Put('/api/tarhely/:id')
+  changeStorage(@Param('id') id: number, @Body() storage: Storages) {
+    const storageRepo = this.dataSource.getRepository(Storages);
+    storageRepo.update(id, storage);
+  }
 
 }
